@@ -346,11 +346,31 @@
                             }
                         }
                         .goSite {
-                            display: block;
+                            position: relative;
+                            display: inline-block;
                             margin-top: 17px;
                             color: #00ff7e;
-                            i {
-                                margin-left: 5px;
+                            i,span {
+                                position: relative;
+                                z-index: 9;
+                            }
+                            i {margin-left: 5px;}
+                            &::before {
+                                content: '';
+                                z-index: 8;
+                                display: block;
+                                position: absolute;
+                                left: 50%; top: 50%;
+                                transform: translate(-50%,-50%);
+                                width: 100%; height: 100%;
+                                border: 2px solid #fff;
+                                padding: 10px;
+                                border-radius: 10px;
+                                opacity: 0;
+                                transition: all 0.3s;
+                            }
+                            &:hover {
+                                &::before {opacity: 1;}
                             }
                         }
                     }

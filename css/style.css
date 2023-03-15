@@ -387,12 +387,36 @@ ul, ol, li {
   color: #000;
 }
 #container .portfolio .pfWrap .pf .wrap .info .goSite {
-  display: block;
+  position: relative;
+  display: inline-block;
   margin-top: 17px;
   color: #00ff7e;
 }
+#container .portfolio .pfWrap .pf .wrap .info .goSite i, #container .portfolio .pfWrap .pf .wrap .info .goSite span {
+  position: relative;
+  z-index: 9;
+}
 #container .portfolio .pfWrap .pf .wrap .info .goSite i {
   margin-left: 5px;
+}
+#container .portfolio .pfWrap .pf .wrap .info .goSite::before {
+  content: "";
+  z-index: 8;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fff;
+  padding: 10px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+#container .portfolio .pfWrap .pf .wrap .info .goSite:hover::before {
+  opacity: 1;
 }
 
 #footer .leftText {
