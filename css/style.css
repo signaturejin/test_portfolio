@@ -1,0 +1,413 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  --color-basic: #fff;
+  --color-change: #a30000;
+}
+
+body {
+  line-height: 1;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+  font-family: "Noto Sans", sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
+}
+body::-webkit-scrollbar {
+  width: 5px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #b6b6b6;
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+img {
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+#header {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+#header::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+#header::before {
+  content: "";
+  width: 100%;
+  height: 40%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+}
+#header .imgWrap {
+  height: 100%;
+}
+#header .imgWrap img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 130%;
+  transition: all 0.1s;
+  /*
+      @for $변수명 from 시작숫자 through 끝나는 숫자
+  */
+}
+#header .imgWrap img:nth-child(1) {
+  z-index: 4;
+}
+#header .imgWrap img:nth-child(2) {
+  z-index: 3;
+}
+#header .imgWrap img:nth-child(3) {
+  z-index: 2;
+}
+#header .imgWrap img:nth-child(4) {
+  z-index: 1;
+}
+#header .hTop {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  line-height: 100px;
+  z-index: 999;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+#header .hTop .center {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+#header .hTop .center .logo a img {
+  width: 70px;
+  height: 70px;
+}
+#header .hTop .center .gnb {
+  display: flex;
+}
+#header .hTop .center .gnb li {
+  padding-left: 60px;
+  font-weight: bold;
+}
+#header .hTop .center .gnb li a {
+  position: relative;
+}
+#header .hTop .center .gnb li a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.5s;
+  border-radius: 5px;
+}
+#header .hTop .center .gnb li a:hover::after {
+  width: 100%;
+}
+#header .hTop .center .gnb li a.on::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.5s;
+  border-radius: 5px;
+}
+#header .hTop.fixed {
+  position: fixed;
+  background-color: #00ff7e;
+  transition: all 0.3s;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+  line-height: 80px;
+}
+#header .hTop.fixed .center .logo a img {
+  position: relative;
+  bottom: 4.5px;
+}
+#header .hTop.fixed .center .gnb a {
+  color: #000;
+}
+#header .hTop.fixed .center .gnb a:hover::after {
+  background-color: #000 !important;
+}
+#header .hTop.fixed .center .gnb a.on::after {
+  background-color: #000 !important;
+}
+#header .title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 8;
+}
+#header .title .text_ani_box {
+  display: flex;
+  justify-content: center;
+}
+#header .title .text_ani_box svg {
+  fill: none;
+  width: 320px;
+  stroke-width: 4px;
+}
+#header .title .text_ani_box path {
+  stroke: #fff;
+  stroke-dasharray: 779.64;
+  stroke-dashoffset: 779.64;
+  animation: path 4s forwards 0.7s;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+@keyframes path {
+  80% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: #fff;
+    opacity: 0.9;
+  }
+}
+#header .title .typingWrap {
+  position: relative;
+  background-color: #289160;
+}
+#header .title .typingWrap .typing {
+  position: absolute;
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 23px;
+  font-weight: bold;
+  text-shadow: 0 5px 5px rgba(255, 255, 255, 0.3);
+}
+#header .title .typingWrap .typing::after {
+  content: "|";
+  font-size: 20px;
+  width: 20px;
+  height: 10px;
+  color: #fff;
+  animation-name: cursorAni;
+  /* 몇초에 걸쳐서 실행 */
+  animation-duration: 0.7s;
+  /* 실행횟수 */
+  animation-iteration-count: infinite;
+}
+@keyframes cursorAni {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#header .hBot {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  z-index: 9;
+  text-align: center;
+}
+#header .hBot .text {
+  padding-bottom: 10px;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 300;
+}
+#header .hBot .mouse {
+  margin: 0 auto;
+  width: 20px;
+  height: 35px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+#header .hBot .mouse .mouseWheel {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+  animation-name: wheelAni;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes wheelAni {
+  0% {
+    top: 5px;
+  }
+  100% {
+    top: 20px;
+  }
+}
+
+#container .section {
+  margin: 0 auto;
+  width: 80%;
+}
+#container .section .leftText, #container .section .rightText {
+  position: relative;
+  color: #00ff7e;
+  font-size: 70px;
+}
+#container .section .leftText {
+  padding: 250px 0 70px;
+}
+#container .section .rightText {
+  padding: 250px 0 150px;
+  text-align: right;
+}
+#container .about .mainText {
+  text-align: center;
+  font-size: 27px;
+  margin: 80px 0 45px;
+}
+#container .about .mainText span {
+  font-size: 40px;
+  position: relative;
+}
+#container .about .mainText span:first-child {
+  bottom: 3px;
+  right: 3px;
+}
+#container .about .mainText span:last-child {
+  top: 3px;
+  left: 3px;
+}
+#container .about .mainText .color {
+  color: #00ff7e;
+}
+#container .about .subText {
+  text-align: center;
+  font-size: 17px;
+  line-height: 30px;
+}
+#container .portfolio .pfWrap .pf {
+  margin-bottom: 200px;
+}
+#container .portfolio .pfWrap .pf:last-child {
+  margin-bottom: 0;
+}
+#container .portfolio .pfWrap .pf .pfTitle {
+  padding-bottom: 30px;
+  font-size: 27px;
+}
+#container .portfolio .pfWrap .pf .wrap {
+  display: flex;
+  align-items: center;
+}
+#container .portfolio .pfWrap .pf .wrap img {
+  width: 650px;
+  height: 400px;
+  border-radius: 5px;
+}
+#container .portfolio .pfWrap .pf .wrap .info {
+  padding-left: 80px;
+}
+#container .portfolio .pfWrap .pf .wrap .info p, #container .portfolio .pfWrap .pf .wrap .info .sideInfo {
+  padding-bottom: 20px;
+}
+#container .portfolio .pfWrap .pf .wrap .info p span i, #container .portfolio .pfWrap .pf .wrap .info .sideInfo span i {
+  margin-right: 5px;
+  font-size: 1px;
+  position: relative;
+  bottom: 3px;
+}
+#container .portfolio .pfWrap .pf .wrap .info .sideInfo span {
+  display: block;
+  padding-bottom: 10px;
+}
+#container .portfolio .pfWrap .pf .wrap .info .sideInfo .text {
+  padding-bottom: 10px;
+  font-size: 15px;
+  text-indent: 10px;
+}
+#container .portfolio .pfWrap .pf .wrap .info .sideInfo .id {
+  position: relative;
+}
+#container .portfolio .pfWrap .pf .wrap .info .sideInfo .id::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 6px;
+  top: -2px;
+  width: 84%;
+  height: 65%;
+  background-color: #00ff7e;
+  z-index: 1;
+}
+#container .portfolio .pfWrap .pf .wrap .info .sideInfo .id span {
+  position: relative;
+  z-index: 2;
+  color: #000;
+}
+#container .portfolio .pfWrap .pf .wrap .info .goSite {
+  display: block;
+  margin-top: 17px;
+  color: #00ff7e;
+}
+#container .portfolio .pfWrap .pf .wrap .info .goSite i {
+  margin-left: 5px;
+}
+
+#footer .leftText {
+  position: relative;
+  color: #00ff7e;
+  padding-bottom: 70px;
+  font-size: 70px;
+  padding-top: 250px;
+}
+#footer .wrap {
+  text-align: center;
+}
+#footer .wrap .email {
+  padding-bottom: 13px;
+}
+#footer .wrap .phone {
+  padding-bottom: 70px;
+}

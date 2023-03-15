@@ -1,0 +1,23 @@
+// reset
+* {
+    margin: 0;
+    padding: 0;
+    // cursor: none;
+    --color-basic: #fff;
+    --color-change: #a30000;
+}
+body {
+    line-height: 1;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    // 스크롤바
+    &::-webkit-scrollbar {width: 5px;}
+    &::-webkit-scrollbar-thumb {background-color: #b6b6b6;; border-radius: 10px;}
+    &::-webkit-scrollbar-track {background-color: transparent;}
+}
+img {vertical-align: middle;}
+a {text-decoration: none; color: #fff;}
+ul,ol,li {list-style: none;}
