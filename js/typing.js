@@ -1,5 +1,5 @@
 const typing = document.querySelector(".typing");
-let context = "웹 개발자 허유진 입니다 :)"; // 16
+let context = "웹 개발자 OOO 입니다 :)"; // 16
 
 // 0부터 16까지 1씩 증가될 변수
 let charIndex = 0;
